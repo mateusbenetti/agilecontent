@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <UserSecretsId>1df64883-6b3b-4663-b734-7314669f3601</UserSecretsId>
+    <UserSecretsId>a5bf6351-070f-444c-9354-1c15b1d76186</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <WarningsAsErrors />
-    <DocumentationFile>C:\Projetos\GIT\AgileContent\src\AgileContent.Api\AgileContent.Api.xml</DocumentationFile>
+    <DocumentationFile>C:\Projetos\GIT\AgileContent\src\AgileContent.WebApi\AgileContent.WebApi.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.4.10" />
@@ -26,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AgileContent.Application\AgileContent.Application.csproj" />
     <ProjectReference Include="..\AgileContent.CrossCutting.IoC\AgileContent.CrossCutting.IoC.csproj" />
   </ItemGroup>
 

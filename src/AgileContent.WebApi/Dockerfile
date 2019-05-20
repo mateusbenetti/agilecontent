@@ -8,16 +8,16 @@ EXPOSE 443
 
 FROM microsoft/dotnet:2.1-sdk-nanoserver-1803 AS build
 WORKDIR /src
-COPY ["AgileContent.Api/AgileContent.Api.csproj", "AgileContent.Api/"]
-RUN dotnet restore "AgileContent.Api/AgileContent.Api.csproj"
+COPY ["AgileContent.WebApi/AgileContent.WebApi.csproj", "AgileContent.WebApi/"]
+RUN dotnet restore "AgileContent.WebApi/AgileContent.WebApi.csproj"
 COPY . .
-WORKDIR "/src/AgileContent.Api"
-RUN dotnet build "AgileContent.Api.csproj" -c Release -o /app
+WORKDIR "/src/AgileContent.WebApi"
+RUN dotnet build "AgileContent.WebApi.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "AgileContent.Api.csproj" -c Release -o /app
+RUN dotnet publish "AgileContent.WebApi.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "AgileContent.Api.dll"]
+ENTRYPOINT ["dotnet", "AgileContent.WebApi.dll"]

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AgileContent.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:AgileContent.WebApi.Controllers.FamilyNumberController">
+            <inheritdoc />
+            <summary>
+            Api para Test 1. DecReprSenior.
+            </summary>
+        </member>
+        <member name="M:AgileContent.WebApi.Controllers.FamilyNumberController.#ctor(AgileContent.Application.Interface.IFamilyNumber)">
+            <summary>
+            Controller Constructor 
+            </summary>
+            <param name="familyNumber">Application Service</param>
+        </member>
+        <member name="M:AgileContent.WebApi.Controllers.FamilyNumberController.Get(System.Int64)">
+            <summary>
+            Get Largest Family Number
+            </summary>
+            <param name="number">Number for get largest Family Number</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

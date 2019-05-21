@@ -1,4 +1,5 @@
 ﻿using AgileContent.Application.Interface;
+using AgileContent.Domain.FamilyNumber.DTo;
 using AgileContent.Domain.FamilyNumber.Interface;
 
 namespace AgileContent.Application.Service
@@ -12,9 +13,16 @@ namespace AgileContent.Application.Service
         }
         int IFamilyNumberService.GetLargestFamilyNumber(long number)
         {
-            _calcFamilyNumberCommand.SetNumber(number);
-            _calcFamilyNumberCommand.Execute();
-            return _calcFamilyNumberCommand.Result;
+            _calcFamilyNumberCommand.SetDto(new InputFamilyNumberDto() { Number = number });
+            if (_calcFamilyNumberCommand.Valid().IsValid)
+            {
+                _calcFamilyNumberCommand.Execute();
+                return _calcFamilyNumberCommand.GetResult();
+            }
+            else
+            {
+                return 0;
+            }            
         }
     }
 }

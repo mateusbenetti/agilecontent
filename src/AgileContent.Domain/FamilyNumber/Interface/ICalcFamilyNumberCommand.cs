@@ -1,10 +1,10 @@
-﻿using AgileContent.Domain.Interface;
+﻿using AgileContent.Domain.Behaviors.Interface;
+using AgileContent.Domain.FamilyNumber.DTo;
+using AgileContent.Domain.FamilyNumber.Validators;
 
 namespace AgileContent.Domain.FamilyNumber.Interface
 {
-    public interface ICalcFamilyNumberCommand : ICommandHandler
+    public interface ICalcFamilyNumberCommand : ICommandHandler<InputFamilyNumberDto, InputFamilyNumberDtoValidator, int>
     {
-        void SetNumber(long number);
-        int Result { get;  }
     }
 }

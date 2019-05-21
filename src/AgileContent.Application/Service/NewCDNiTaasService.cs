@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using AgileContent.Application.Interface;
 using AgileContent.Application.Model;
 
@@ -9,8 +7,6 @@ namespace AgileContent.Application.Service
 {
     public class NewCDNiTaasService : INewCDNiTaasService
     {
-
-
         public bool ValidSourceUrl(string sourceUrl)
         {
             throw new NotImplementedException();

@@ -11,12 +11,12 @@ namespace AgileContent.WebApi.Controllers
     [ApiController]
     public class FamilyNumberController : ControllerBase
     {
-        private readonly IFamilyNumber _familyNumber;
+        private readonly IFamilyNumberService _familyNumber;
         /// <summary>
         /// Controller Constructor 
         /// </summary>
         /// <param name="familyNumber">Application Service</param>
-        public FamilyNumberController(IFamilyNumber familyNumber)
+        public FamilyNumberController(IFamilyNumberService familyNumber)
         {
             _familyNumber = familyNumber;
         }

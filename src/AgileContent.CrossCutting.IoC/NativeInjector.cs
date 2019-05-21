@@ -1,5 +1,7 @@
 ﻿using AgileContent.Application.Interface;
 using AgileContent.Application.Service;
+using AgileContent.Domain.FamilyNumber.Commands;
+using AgileContent.Domain.FamilyNumber.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,12 +14,12 @@ namespace AgileContent.CrossCutting.IoC
             // ASP.NET HttpContext dependency
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            // Application
-            services.AddScoped<IFamilyNumber, FamilyNumber>();
+            //Commands
+            services.AddScoped<ICalcFamilyNumberCommand, CalcFamilyNumberCommand>();
 
-            // Domain - Commands
-            //services.AddScoped<IPlayerDomain, PlayerDomain>();
-            //services.AddScoped<IGameDomain, GameDomain>();
+            // Application
+            services.AddScoped<IFamilyNumberService, FamilyNumberService>();
+            services.AddScoped<INewCDNiTaasService, NewCDNiTaasService>();
         }
     }
 }

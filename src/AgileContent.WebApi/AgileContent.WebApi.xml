@@ -10,7 +10,7 @@
             Api para Test 1. DecReprSenior.
             </summary>
         </member>
-        <member name="M:AgileContent.WebApi.Controllers.FamilyNumberController.#ctor(AgileContent.Application.Interface.IFamilyNumber)">
+        <member name="M:AgileContent.WebApi.Controllers.FamilyNumberController.#ctor(AgileContent.Application.Interface.IFamilyNumberService)">
             <summary>
             Controller Constructor 
             </summary>

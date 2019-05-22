@@ -36,7 +36,7 @@ namespace AgileContent.CrossCuttingTest.NewCDNiTaas.Commands
         }
 
         [Fact]
-        public void VaalidUrls()
+        public void ValidUrl()
         {
             _readFileContentCommand.SetDto(new Domain.NewCDNiTaas.DTo.LogFileDTo() { Url = "https://s3.amazonaws.com/uux-itaas-static/minha-cdn-logs/input-01.txt" });
             _readFileContentCommand.Valid().IsValid.Should().BeTrue("Url Validate is Broken");

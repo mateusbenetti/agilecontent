@@ -1,9 +1,6 @@
 ﻿using AgileContent.Domain.NewCDNiTaas.Commands;
 using AgileContent.Domain.NewCDNiTaas.Interface;
 using FluentAssertions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace AgileContent.CrossCuttingTest.NewCDNiTaas.Commands

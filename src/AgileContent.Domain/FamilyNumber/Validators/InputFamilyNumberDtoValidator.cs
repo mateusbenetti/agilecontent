@@ -7,7 +7,7 @@ namespace AgileContent.Domain.FamilyNumber.Validators
     {
         public InputFamilyNumberDtoValidator()
         {
-            RuleFor(p => p.Number).GreaterThan(0).WithMessage("Negative number informed");
+            RuleFor(p => p.Number).GreaterThan(-1).WithMessage("Negative number informed");
         }
     }
 }

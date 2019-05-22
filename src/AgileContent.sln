@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - UI", "1 - UI", "{A6DA1521-4082-4FAE-BE61-8A95A2BD206E}"
 EndProject
@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 -
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgileContent.CrossCutting.IoC", "AgileContent.CrossCutting.IoC\AgileContent.CrossCutting.IoC.csproj", "{E949A58B-2A49-4B5F-AA08-5F80A106EB99}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgileContent.CrossCuttingTest", "AgileContent.UnitTest\AgileContent.CrossCuttingTest.csproj", "{24B6CF43-93EA-436C-9A46-C9210E7FBD1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgileContent.CrossCutting.Test", "AgileContent.UnitTest\AgileContent.CrossCutting.Test.csproj", "{24B6CF43-93EA-436C-9A46-C9210E7FBD1C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgileContent.WebApi", "AgileContent.WebApi\AgileContent.WebApi.csproj", "{D543C684-E9C3-48D3-99FB-9971FDC1A65F}"
 EndProject

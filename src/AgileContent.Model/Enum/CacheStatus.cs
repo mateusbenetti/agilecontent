@@ -4,6 +4,7 @@
     {
         Hit,
         Miss,
-        RefreshHit
+        RefreshHit,
+        None
     }
 }

@@ -1,9 +1,14 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 
 namespace AgileContent.Model.Entities
 {
-    public class MyCdnLogFileModel : LogFileModel
+    public class MyCdnLogFileModel : LogFileModel<MyCdnLogEventModel>
     {
+        public MyCdnLogFileModel()
+        {
+            Events = new List<MyCdnLogEventModel>();
+        }
         public override string FileContent
         {
             get

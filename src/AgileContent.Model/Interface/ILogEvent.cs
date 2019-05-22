@@ -8,7 +8,8 @@ namespace AgileContent.Model.Interface
         HttpMethod HttpMethod { get; set; }
         int StatusCode { get; set; }
         string UriPath { get; set; }
-        double TimeTaken { get; set; }
+        string TimeTaken { get; set; }
+        string DisplayTimeTaken { get; }
         int ResponseSize { get; set; }
         CacheStatus CacheStatus { get; set; }
         string CacheStatusDescription { get; }

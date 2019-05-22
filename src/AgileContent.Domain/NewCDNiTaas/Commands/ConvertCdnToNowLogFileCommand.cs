@@ -12,7 +12,7 @@ namespace AgileContent.Domain.NewCDNiTaas.Commands
     {
         public override void Execute()
         {
-            Result = new NowLogFileModel(1.0);
+            Result = new NowLogFileModel(Dto.Version, Dto.DateTime);
             var myCdnLogFileModel = new MyCdnLogFileModel();
             foreach (var line in Dto.FileLines)
                 myCdnLogFileModel.Events.Add(BuildMyCdnLogEventModel(line));
@@ -30,7 +30,7 @@ namespace AgileContent.Domain.NewCDNiTaas.Commands
                 CacheStatus = ConvertToCacheStatus(values[2]),
                 HttpMethod = GetHttpMethod(values[3]),
                 UriPath = UriPath(values[3]),
-                TimeTaken = double.Parse(values[4])
+                TimeTaken = values[4]
             };
             return myCdnLogEventModel;
         }
@@ -84,6 +84,7 @@ namespace AgileContent.Domain.NewCDNiTaas.Commands
         {
             var nowLogEventModel = new NowLogEventModel()
             {
+                Provider = myCdnLogEventModel.Provider,
                 ResponseSize = myCdnLogEventModel.ResponseSize,
                 StatusCode = myCdnLogEventModel.StatusCode,
                 CacheStatus = myCdnLogEventModel.CacheStatus,

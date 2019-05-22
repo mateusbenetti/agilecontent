@@ -30,6 +30,8 @@ namespace AgileContent.Model.Entities
             }
         }
 
-        public override string FormatLog => $"{ResponseSize}|{StatusCode}|{CacheStatusDescription}|\"{HttpMethod} {UriPath}  HTTP/1.1\" | {TimeTaken}";
+        public override string FormatLog => $"{ResponseSize}|{StatusCode}|{CacheStatusDescription}|\"{HttpMethod.ToString().ToUpper()} {UriPath}  HTTP/1.1\" | {DisplayTimeTaken}";
+
+        public override string DisplayTimeTaken => TimeTaken;
     }
 }

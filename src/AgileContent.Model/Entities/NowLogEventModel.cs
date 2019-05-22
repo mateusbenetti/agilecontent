@@ -25,6 +25,8 @@ namespace AgileContent.Model.Entities
         }
 
         public override string FormatLog =>
-            $"\"{Provider}\" {HttpMethod} {StatusCode} {UriPath} {TimeTaken} {ResponseSize} {CacheStatusDescription}";
+            $"\"{Provider}\" {HttpMethod.ToString().ToUpper()} {StatusCode} {UriPath} {DisplayTimeTaken} {ResponseSize} {CacheStatusDescription}";
+
+        public override string DisplayTimeTaken => TimeTaken.Split(".")[0];
     }
 }

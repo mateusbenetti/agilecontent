@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using AgileContent.Application.Interface.Behaviors;
-using AgileContent.Application.Model;
 
 namespace AgileContent.Application.Interface
 {

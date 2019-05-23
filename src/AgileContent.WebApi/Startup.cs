@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using AgileContent.CrossCutting.IoC;
 using Microsoft.AspNetCore.Builder;
@@ -32,7 +33,21 @@ namespace AgileContent.WebApi
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Agile Content Test", Version = "v1" });
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "Agile Content Test",
+                    Description = "Two APIs to be evaluated by the Agile Conent's team. ",
+                    Contact = new Contact
+                    {
+                        Name = "Mateus A. Benetti",
+                        Email = "mateusbenetti@gmail.com",
+                        Url = "https://www.linkedin.com/in/mateus-andr%C3%A9-benetti-014b4a3a/"
+                    }
+                });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
             RegisterServices(services);
         }

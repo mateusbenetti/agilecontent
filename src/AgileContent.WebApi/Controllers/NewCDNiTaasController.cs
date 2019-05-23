@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AgileContent.Application.Interface;
 using AgileContent.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +17,11 @@ namespace AgileContent.WebApi.Controllers
         {
             _newCDNiTaasService = newCDNiTaasService;
         }
+        /// <summary>
+        /// Convert CDN Log File  To Now Log File
+        /// </summary>
+        /// <param name="model">Input Url and version for conversion</param>
+        /// <returns>Now Log Content</returns>
         [HttpPost]
         public ActionResult<string> Post([FromBody] ConvertCDNLogToNowModel model)
         {

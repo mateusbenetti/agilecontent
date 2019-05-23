@@ -6,7 +6,7 @@ namespace AgileContent.WebApi.Controllers
 {
     /// <inheritdoc />
     /// <summary>
-    /// Api para Test 1. DecReprSenior.
+    /// 1. DecReprSenior.
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]

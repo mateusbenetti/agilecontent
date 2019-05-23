@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AgileContent.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:AgileContent.WebApi.Controllers.FamilyNumberController">
+            <inheritdoc />
+            <summary>
+            1. DecReprSenior.
+            </summary>
+        </member>
+        <member name="M:AgileContent.WebApi.Controllers.FamilyNumberController.#ctor(AgileContent.Application.Interface.IFamilyNumberService)">
+            <summary>
+            Controller Constructor 
+            </summary>
+            <param name="familyNumber">Application Service</param>
+        </member>
+        <member name="M:AgileContent.WebApi.Controllers.FamilyNumberController.Get(System.Int64)">
+            <summary>
+            Get Largest Family Number
+            </summary>
+            <param name="number">Number for get largest Family Number</param>
+            <returns></returns>
+        </member>
+        <member name="T:AgileContent.WebApi.Controllers.NewCDNiTaasController">
+            <summary>
+            2 - New CDN iTaas
+            </summary>
+        </member>
+        <member name="M:AgileContent.WebApi.Controllers.NewCDNiTaasController.Post(AgileContent.WebApi.Model.ConvertCDNLogToNowModel)">
+            <summary>
+            Convert CDN Log File  To Now Log File
+            </summary>
+            <param name="model">Input Url and version for conversion</param>
+            <returns>Now Log Content</returns>
+        </member>
+        <member name="T:AgileContent.WebApi.Model.ConvertCDNLogToNowModel">
+            <summary>
+            Input Model For Convert CDN Log File To Now Log File Model.
+            </summary>
+        </member>
+        <member name="P:AgileContent.WebApi.Model.ConvertCDNLogToNowModel.Url">
+            <summary>
+            Url with CDN Log Content
+            </summary>
+        </member>
+        <member name="P:AgileContent.WebApi.Model.ConvertCDNLogToNowModel.Version">
+            <summary>
+            Version Now Log File.
+            </summary>
+        </member>
+    </members>
+</doc>

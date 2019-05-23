@@ -6,5 +6,7 @@ namespace AgileContent.Application.Interface.Behaviors
     public interface IService
     {
         IList<ValidationFailure> Errors { get; set; }
+
+        bool HasErrors { get; }
     }
 }

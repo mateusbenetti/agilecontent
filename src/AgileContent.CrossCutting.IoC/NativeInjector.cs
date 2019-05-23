@@ -16,10 +16,13 @@ namespace AgileContent.CrossCutting.IoC
             // ASP.NET HttpContext dependency
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            //Commands
+            //Commands - FamilyNumberService
             services.AddScoped<ICalcFamilyNumberCommand, CalcFamilyNumberCommand>();
+
+            // Commands  - NewCDNiTaasService
             services.AddScoped<IConvertCdnToNowLogFileCommand, ConvertCdnToNowLogFileCommand>();
             services.AddScoped<IReadFileContentCommand, ReadFileContentCommand>();
+            services.AddScoped<ICreateNowLogFileContentCommand, CreateNowLogFileContentCommand>();
 
             // Application
             services.AddScoped<IFamilyNumberService, FamilyNumberService>();

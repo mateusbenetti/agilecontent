@@ -8,5 +8,7 @@ namespace AgileContent.WebApi.Model
     public class ConvertCDNLogToNowModel
     {
         public string Url { get; set; }
+
+        public string Version { get; set; }
     }
 }

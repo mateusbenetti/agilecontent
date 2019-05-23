@@ -12,5 +12,7 @@ namespace AgileContent.Application.Service.Behaviors
         }
 
         public IList<ValidationFailure> Errors { get;  set; }
+
+        public bool HasErrors => Errors.Count > 0;
     }
 }

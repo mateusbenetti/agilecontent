@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.PlatformAbstractions;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace AgileContent.WebApi
 {
@@ -29,34 +30,10 @@ namespace AgileContent.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddSwaggerGen();
-            //services.ConfigureSwaggerGen(p =>
-            //{
-                
-            //});
-            //services.ConfigureSwaggerGen(options =>
-            //{
-            //    //options.SingleApiVersion(new Info
-            //    //{
-            //    //        Title = "Agile Content Tests",
-            //    //        Version = "v1",
-            //    //        Description = ".Test from Net Developer Sr. C# job in Agile Content.",
-            //    //        Contact = new Contact
-            //    //        {
-            //    //            Name = "Mateus Benetti",
-            //    //            Url = "https://github.com/mateusbenetti/agilecontent"
-            //    //        }
-            //    //    });
-            //    var applicationPath =
-            //        PlatformServices.Default.Application.ApplicationBasePath;
-            //    var applicationName =
-            //        PlatformServices.Default.Application.ApplicationName;
-            //    var xmlDocPath =
-            //        Path.Combine(applicationPath, $"{applicationName}.xml");
-
-            //    c.IncludeXmlComments(xmlDocPath);
-            //});
-
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Agile Content Test", Version = "v1" });
+            });
             RegisterServices(services);
         }
 
@@ -71,11 +48,14 @@ namespace AgileContent.WebApi
             {
                 app.UseHsts();
             }
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Agile Content Test");
+                c.RoutePrefix = string.Empty;
+            });
             app.UseHttpsRedirection();
             app.UseMvc();
-            app.UseSwagger();
-            app.UseSwaggerUI();
         }
 
         private static void RegisterServices(IServiceCollection services)

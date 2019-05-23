@@ -23,5 +23,10 @@
             <param name="number">Number for get largest Family Number</param>
             <returns></returns>
         </member>
+        <member name="T:AgileContent.WebApi.Controllers.NewCDNiTaasController">
+            <summary>
+            2 - New CDN iTaas
+            </summary>
+        </member>
     </members>
 </doc>

@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using AgileContent.Application.Interface.Behaviors;
 using AgileContent.Application.Model;
 
 namespace AgileContent.Application.Interface
 {
-    public  interface INewCDNiTaasService
+    public  interface INewCDNiTaasService : IService
     {
-        bool ValidSourceUrl(string sourceUrl);
-        bool ValidUrlFileExtension(string sourceUrl);
-        string ReadFileContent(string sourceUrl);
-        bool ValidFileContent(string fileContent);
-        IList<MyCdnLogEventViewModel> ReadLogContent(string fileContent);
-        string ConvertNowLogFile(IList<MyCdnLogEventViewModel> events);
+        string ConvertCdnFileToNowFile(string sourceUrl, string version, DateTime dateTime);
     }
 }

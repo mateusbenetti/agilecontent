@@ -1,40 +1,57 @@
 ﻿using System;
-using System.Collections.Generic;
 using AgileContent.Application.Interface;
-using AgileContent.Application.Model;
+using AgileContent.Domain.NewCDNiTaas.DTo;
+using AgileContent.Domain.NewCDNiTaas.Interface;
+using FluentValidation.Results;
 
 namespace AgileContent.Application.Service
 {
-    public class NewCDNiTaasService : INewCDNiTaasService
+    public class NewCDNiTaasService : Behaviors.Service, INewCDNiTaasService
     {
-        public bool ValidSourceUrl(string sourceUrl)
+        IReadFileContentCommand _readFileContentCommand;
+        IConvertCdnToNowLogFileCommand _convertCdnToNowLogFileCommand;
+        ICreateNowLogFileContentCommand _createNowLogFileContentCommand;
+
+        public NewCDNiTaasService(IReadFileContentCommand readFileContentCommand,
+            IConvertCdnToNowLogFileCommand convertCdnToNowLogFileCommand,
+            ICreateNowLogFileContentCommand createNowLogFileContentCommand)
         {
-            throw new NotImplementedException();
+            _readFileContentCommand = readFileContentCommand;
+            _convertCdnToNowLogFileCommand = convertCdnToNowLogFileCommand;
+            _createNowLogFileContentCommand = createNowLogFileContentCommand;
         }
 
-        public bool ValidUrlFileExtension(string sourceUrl)
+        public string ConvertCdnFileToNowFile(string sourceUrl, string version, DateTime dateTime)
         {
-            throw new NotImplementedException();
-        }
+            string nowFileContent = string.Empty;
+            ValidationResult result;
+            var logFileDTo = new LogFileDTo() { Url = sourceUrl, Version = version, DateTime = dateTime };
+            _readFileContentCommand.SetDto(logFileDTo);
+            result = _readFileContentCommand.Valid();
+            if (result.IsValid)
+            {
+                _readFileContentCommand.Execute();
+                logFileDTo.FileLines = _readFileContentCommand.GetResult();
+                _convertCdnToNowLogFileCommand.SetDto(logFileDTo);
+                result = _convertCdnToNowLogFileCommand.Valid();
+                if (result.IsValid)
+                {
+                    _convertCdnToNowLogFileCommand.Execute();
+                    logFileDTo.NowLogFileModel = _convertCdnToNowLogFileCommand.GetResult();
 
-        public string ReadFileContent(string sourceUrl)
-        {
-            throw new NotImplementedException();
-        }
+                    _createNowLogFileContentCommand.SetDto(logFileDTo);
+                    result = _createNowLogFileContentCommand.Valid();
+                    if (result.IsValid)
+                    {
+                        _createNowLogFileContentCommand.Execute();
+                        nowFileContent = _createNowLogFileContentCommand.GetResult();
+                    }
+                }
+            }
+            if (!result.IsValid)
+                Errors = result.Errors;
 
-        public bool ValidFileContent(string fileContent)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<MyCdnLogEventViewModel> ReadLogContent(string fileContent)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string ConvertNowLogFile(IList<MyCdnLogEventViewModel> events)
-        {
-            throw new NotImplementedException();
+            return nowFileContent;
         }
     }
 }

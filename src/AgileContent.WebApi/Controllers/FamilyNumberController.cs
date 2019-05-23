@@ -1,5 +1,6 @@
 ﻿using AgileContent.Application.Interface;
 using Microsoft.AspNetCore.Mvc;
+using System.Web.Http;
 
 namespace AgileContent.WebApi.Controllers
 {
@@ -27,10 +28,11 @@ namespace AgileContent.WebApi.Controllers
         /// </summary>
         /// <param name="number">Number for get largest Family Number</param>
         /// <returns></returns>
-        [HttpGet("{largestFamilyNumber}")]
+        [HttpGet("{number}")]
         public ActionResult<int> Get(long number)
         {
-            return _familyNumber.GetLargestFamilyNumber(number);
+            var result = _familyNumber.GetLargestFamilyNumber(number);
+            return  Ok(result);
         }
     }
 }

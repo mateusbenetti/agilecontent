@@ -15,11 +15,15 @@ namespace AgileContent.Domain.FamilyNumber.Commands
             {
                 if (Dto.Number <= maxLargestFamilyNumberInput)
                 {
+                    int[] numbersOccurrences = new int[10];
                     var largestFamilyNumberString = string.Empty;
                     var stringNumber = Dto.Number.ToString();
-                    var numbersChar = stringNumber.ToCharArray().Select(p => int.Parse(p.ToString()));
-                    var orderNumberChar = numbersChar.OrderByDescending(p => p);
-                    orderNumberChar.ToList().ForEach(p => largestFamilyNumberString += p.ToString());
+                    foreach (char number in stringNumber)
+                        numbersOccurrences[int.Parse(number.ToString())]++;
+                    for (int x = 9; x >= 0; x--)
+                        for (int y = 0; y < numbersOccurrences[x]; y++)
+                            largestFamilyNumberString += x;
+
                     Result = int.Parse(largestFamilyNumberString);
                 }
                 else

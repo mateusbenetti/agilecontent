@@ -12,7 +12,7 @@ namespace AgileContent.WebApi.Controllers
     [ApiController]
     public class NewCDNiTaasController : Controller
     {
-        INewCDNiTaasService _newCDNiTaasService;
+        readonly INewCDNiTaasService _newCDNiTaasService;
         public NewCDNiTaasController(INewCDNiTaasService newCDNiTaasService)
         {
             _newCDNiTaasService = newCDNiTaasService;

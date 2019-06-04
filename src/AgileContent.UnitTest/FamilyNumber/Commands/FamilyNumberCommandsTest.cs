@@ -37,9 +37,10 @@ namespace AgileContent.CrossCuttingTest.FamilyNumber.Commands
         }
 
         [Theory]
+        [InlineData(7090032, 9732000)]
         [InlineData(213, 321)]
-        [InlineData(355, 553)]
         [InlineData(553, 553)]
+        [InlineData(355, 553)]
         public void ExpectedResult(long number, int largestFamilyNumber)
         {
             CalcFamilyNumberCommand.SetDto(new InputFamilyNumberDto() { Number = number });

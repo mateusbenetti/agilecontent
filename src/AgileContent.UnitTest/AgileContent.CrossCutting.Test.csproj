@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AgileContent.Application\AgileContent.Application.csproj" />
+    <ProjectReference Include="..\AgileContent.BussinessLogic\AgileContent.BussinessLogic.csproj" />
   </ItemGroup>
 
 </Project>
